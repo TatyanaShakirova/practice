@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import copy
 
 def create_matrix():
     rows = int(input("input number of rows: "))
@@ -8,7 +8,7 @@ def create_matrix():
     matrix = [[0] * columns for i in range(rows)]
     for i in range(rows):
         for j in range(columns):
-            matrix[i][j] = input()
+            matrix[i][j] = input() #no control of numbers
     return matrix
 
 
@@ -53,14 +53,15 @@ def is_unique(matrix):
 
 
 def sum_of_row(matrix):
-    for row in matrix:
+    new_matrix = copy.deepcopy(matrix)
+    for row in new_matrix:
         sum_ = 0
         for i in range(len(row)):
             if i == len(row) - 1:
                 row[i] = sum_
             else:
                 sum_ += row[i]
-    return matrix
+    return new_matrix
 
 
 def is_magic(matrix):
@@ -110,8 +111,8 @@ def is_unique_general(matrix):
 
 
 if __name__ == '__main__':
-    my_matrix = create_fake_matrix()
-    # matrix = create_matrix()
+    #my_matrix = create_fake_matrix()
+    my_matrix = create_matrix()
     print "matrix:", my_matrix, "\n"
 
     # task1
