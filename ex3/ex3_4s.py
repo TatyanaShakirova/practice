@@ -28,11 +28,11 @@ if __name__ == '__main__':
     for i in range(len(base_string)):
         s = base_string[i]
         if s == open_br:
-            if close == 0:  # if there were no close brackets yet, we shoud count opens
+            if close == 0:
                 opens.append(i)
-            else:  # after close bracket(s) new open bracket will start new cycle and here we shoud make replacement
-                result_string += base_string[opens[0]:opens[-1]] + replace_string  # MAKE REPLACEMENT
-                if method == "a": # if only first should be replaced
+            else:
+                result_string += base_string[opens[0]:opens[-1]] + replace_string
+                if method == "a":
                     result_string += base_string[close + 1:]
                     break
                 else:
@@ -45,9 +45,8 @@ if __name__ == '__main__':
                     opens = opens[:-1]
                 close = i
                 if len(opens) == 1:
-                    #DUBLICATE!!!!!
-                    result_string += base_string[opens[0]:opens[-1]] + replace_string  # MAKE REPLACEMENT
-                    if method == "a":  # if only first should be replaced
+                    result_string += base_string[opens[0]:opens[-1]] + replace_string
+                    if method == "a":
                         result_string += base_string[close + 1:]
                         break
                     else:
